@@ -1,0 +1,36 @@
+$primary-color-lightest: #f8fafc;
+$primary-color-light: #94a3b8;
+$primary-color: #64748b;
+$primary-color-dark: #475569;
+$primary-color-darkest: #020617;
+
+$secondary-color-lightest: #fffbeb;
+$secondary-color-light: #fbbf24;
+$secondary-color: #f59e0b;
+$secondary-color-dark: #d97706;
+$secondary-color-darkest: #451a03;
+
+$size-base: 1rem;
+$size-0: 0rem;
+$size-2xs: $size-base * 0.25; /* 4px */
+$size-xs: $size-base * 0.5; /* 8px */
+$size-sm: $size-base * 0.75; /* 12px */
+$size-m: $size-base; /* 16px */
+$size-lg: $size-base * 1.5; /* 24px */
+$size-xl: $size-base * 2; /* 32px */
+$size-2xl: $size-base * 2.5; /* 40px */
+$size-3xl: $size-base * 3; /* 48px */
+$size-4xl: $size-base * 4; /* 64px */
+$size-5xl: $size-base * 5; /* 80px */
+$size-6xl: $size-base * 6; /* 96px */
+
+body {
+    height: 100%;
+    min-height: 100svh;
+    padding: $size-xl;
+    color: $primary-color-lightest;
+    background-color: $primary-color-darkest;
+}
+
+.app {
+}
