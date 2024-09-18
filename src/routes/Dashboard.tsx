@@ -1,38 +1,15 @@
-import useFetch from "../hooks/useFetch"
-import { useQuery } from "@tanstack/react-query"
+import { useFetchDashboard } from "../hooks/useFetchDashboard";
+
 
 
 export default function Dashboard() {
-    const { fetchDashboardData, fetchGenres } = useFetch();
 
-    const movieGenres = useQuery({
-        queryKey: ['movie-genres'],
-        queryFn: () => fetchGenres("movie"),
-    })
-    const tvGenres = useQuery({
-        queryKey: ['tv-genres'],
-        queryFn: () => fetchGenres("tv"),
-    })
-
-    const dashboardMovieData = useQuery({
-        queryKey: ['dashboard-movie-data'],
-        queryFn: () =>
-            Promise.all(
-                movieGenres.data.genres.map((genre: { id: number, name: string }) => fetchDashboardData(genre.id, genre.name, "movie")),
-            ),
-        enabled: !!movieGenres.data,
-    })
-
-    const dashboardTvData = useQuery({
-        queryKey: ['dashboard-tv-data'],
-        queryFn: () =>
-            Promise.all(
-                tvGenres.data.genres.map((genre: { id: number, name: string }) => fetchDashboardData(genre.id, genre.name, "tv")),
-            ),
-        enabled: !!tvGenres.data,
-    })
-
-    console.log(dashboardMovieData.data)
+    const {
+        dashboardMovieData,
+        dashboardTvData,
+        movieGenres,
+        tvGenres,
+    } = useFetchDashboard();
 
     return (
         <main className='dashboard'>
