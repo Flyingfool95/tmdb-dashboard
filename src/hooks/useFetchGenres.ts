@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { useGlobalConstants } from "../state/useGlobalConstants";
 
 export default function useFetchGenres() {
@@ -5,26 +6,47 @@ export default function useFetchGenres() {
     const { TMDB_API_KEY, TMDB_BASE_URL } = useGlobalConstants();
 
 
-    const fetchGenres = async (type: string) => {
+    /**
+     * Fetches the list of movie genres from the TMDB API.
+     *
+     */
+    const movieGenres = useQuery({
+        queryKey: ['movie-genres'],
+        queryFn: () => fetchGenres("movie"),
+    })
+
+    /**
+     * Fetches the list of TV genres from the TMDB API.
+     * 
+     */
+    const tvGenres = useQuery({
+        queryKey: ['tv-genres'],
+        queryFn: () => fetchGenres("tv"),
+    })
+
+    /**
+     * Fetches the list of genres from the TMDB API.
+     *
+     * @param type The type of media to fetch genres for. Must be either "movie" or "tv".
+     * @returns A promise that resolves to an object containing the list of genres.
+     * @throws An error if the request fails or if the response does not contain the expected data.
+     */
+    const fetchGenres = async (type: "movie" | "tv") => {
         try {
             const response = await fetch(`${TMDB_BASE_URL}/genre/${type}/list${TMDB_API_KEY}`);
-
             const data = await response.json();
-
             if (!data.genres) throw new Error(data.status_message)
-
             return data;
+
         } catch (error) {
-
             console.error(error)
-
-            return []
+            return null
         }
     }
 
-
     return {
-        fetchGenres,
+        movieGenres,
+        tvGenres,
     }
 
 }

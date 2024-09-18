@@ -6,17 +6,15 @@ export function useFetchDashboard() {
 
     const { TMDB_API_KEY, TMDB_BASE_URL, TMDB_RESPONSE_LANG } = useGlobalConstants();
 
-    const { fetchGenres } = useFetchGenres();
+    const { movieGenres, tvGenres } = useFetchGenres();
 
-    const movieGenres = useQuery({
-        queryKey: ['movie-genres'],
-        queryFn: () => fetchGenres("movie"),
-    })
-    const tvGenres = useQuery({
-        queryKey: ['tv-genres'],
-        queryFn: () => fetchGenres("tv"),
-    })
 
+    /**
+     * Fetches the dashboard data for movies.
+     *
+     * This query is only enabled if the movie genres have been fetched.
+     * It fetches the data for each movie genre and returns an array of the results.
+     */
     const dashboardMovieData = useQuery({
         queryKey: ['dashboard-movie-data'],
         queryFn: () =>
@@ -26,6 +24,12 @@ export function useFetchDashboard() {
         enabled: !!movieGenres.data,
     })
 
+    /**
+     * Fetches the dashboard data for TV shows.
+     *
+     * This query is only enabled if the TV genres have been fetched.
+     * It fetches the data for each TV genre and returns an array of the results.
+     */
     const dashboardTvData = useQuery({
         queryKey: ['dashboard-tv-data'],
         queryFn: () =>
@@ -35,7 +39,18 @@ export function useFetchDashboard() {
         enabled: !!tvGenres.data,
     })
 
-    const fetchDashboardData = async (genreId: number, genreName: string, type: string) => {
+    /**
+     * Fetches the dashboard data for a specific genre.
+     *
+     * @param {number} genreId The ID of the genre to fetch.
+     * @param {string} genreName The name of the genre to fetch.
+     * @param {string} type The type of media to fetch. Must be either "movie" or "tv".
+     *
+     * @returns {Promise<{name: string, data: any[], totalPages: number, totalResults: number}>} A promise that resolves to an object containing the name of the genre, an array of the results, the total number of pages, and the total number of results.
+     *
+     * @throws {Error} If the request fails or if the response does not contain the expected data.
+     */
+    const fetchDashboardData = async (genreId: number, genreName: string, type: "movie" | "tv") => {
 
         try {
             const response = await fetch(`${TMDB_BASE_URL}/discover/${type}${TMDB_API_KEY}${TMDB_RESPONSE_LANG}&with_genres=${genreId}&sort_by=popularity&page=1`);
@@ -46,7 +61,7 @@ export function useFetchDashboard() {
 
             return {
                 name: genreName,
-                data: data.results.slice(0, 5),
+                data: data.results.slice(0, 5), //Only return the first 5 results of data
                 totalPages: data.total_pages,
                 totalResults: data.total_results,
             };
