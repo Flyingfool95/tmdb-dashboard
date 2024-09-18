@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import useFetch from "../hooks/useFetch";
+import useFetchGenres from "./useFetchGenres";
+import { useGlobalConstants } from "../state/useGlobalConstants";
 
 export function useFetchDashboard() {
 
-    const TMDB_API_KEY = `?api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
-    const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
-    const TMDB_RESPONSE_LANG = `&language=en-US`;
+    const { TMDB_API_KEY, TMDB_BASE_URL, TMDB_RESPONSE_LANG } = useGlobalConstants();
 
-    const { fetchGenres } = useFetch();
+    const { fetchGenres } = useFetchGenres();
 
     const movieGenres = useQuery({
         queryKey: ['movie-genres'],

@@ -1,9 +1,8 @@
-export default function useFetch() {
+import { useGlobalConstants } from "../state/useGlobalConstants";
 
-    const TMDB_API_KEY = `?api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
-    const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
-    const TMDB_RESPONSE_LANG = `&language=en-US`;
+export default function useFetchGenres() {
 
+    const { TMDB_API_KEY, TMDB_BASE_URL } = useGlobalConstants();
 
 
     const fetchGenres = async (type: string) => {
