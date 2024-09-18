@@ -1,0 +1,13 @@
+@use "./global.scss" as var;
+
+.footer {
+    display: flex;
+    align-items: center;
+    gap: var.$size-lg;
+    padding: 0 var.$size-xl;
+    background-color: var.$primary-color-darkest;
+
+    p {
+        max-width: 100%;
+    }
+}

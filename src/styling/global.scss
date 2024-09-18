@@ -1,13 +1,17 @@
 $primary-color-lightest: #f8fafc;
+$primary-color-lighter: #e2e8f0;
 $primary-color-light: #94a3b8;
 $primary-color: #64748b;
 $primary-color-dark: #475569;
+$primary-color-darker: #1e293b;
 $primary-color-darkest: #020617;
 
 $secondary-color-lightest: #fffbeb;
+$secondary-color-lighter: #fde68a;
 $secondary-color-light: #fbbf24;
 $secondary-color: #f59e0b;
 $secondary-color-dark: #d97706;
+$secondary-color-darker: #92400e;
 $secondary-color-darkest: #451a03;
 
 $size-base: 1rem;
@@ -27,10 +31,18 @@ $size-6xl: $size-base * 6; /* 96px */
 body {
     height: 100%;
     min-height: 100svh;
-    padding: $size-xl;
     color: $primary-color-lightest;
-    background-color: $primary-color-darkest;
+    background-color: $primary-color-darker;
 }
 
-.app {
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main {
+    padding: $size-xl;
+    flex-grow: 1;
 }
