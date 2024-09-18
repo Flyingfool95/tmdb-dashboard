@@ -33,6 +33,9 @@ body {
     min-height: 100svh;
     color: $primary-color-lightest;
     background-color: $primary-color-darker;
+
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
 }
 
 #root {
