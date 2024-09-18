@@ -14,17 +14,41 @@ export default function Dashboard() {
         queryFn: () => fetchGenres("tv"),
     })
 
-    console.log(tvGenres.data)
+    const dashboardMovieData = useQuery({
+        queryKey: ['dashboard-movie-data'],
+        queryFn: () =>
+            Promise.all(
+                movieGenres.data.genres.map((genre: { id: number, name: string }) => fetchDashboardData(genre.id, genre.name, "movie")),
+            ),
+        enabled: !!movieGenres.data,
+    })
 
-    /*     const { data, isLoading, error } = useQuery({ 
-            queryKey: ['dashboard'], 
-            queryFn: fetchDashboardData,
-            enabled: !!genres.data,
-        }) */
+    const dashboardTvData = useQuery({
+        queryKey: ['dashboard-tv-data'],
+        queryFn: () =>
+            Promise.all(
+                tvGenres.data.genres.map((genre: { id: number, name: string }) => fetchDashboardData(genre.id, genre.name, "tv")),
+            ),
+        enabled: !!tvGenres.data,
+    })
+
+    console.log(dashboardMovieData.data)
 
     return (
         <main className='dashboard'>
-            <h1>Dashboard</h1>
+            <h2>Movies</h2>
+            {
+                dashboardMovieData.data && dashboardMovieData.data.map((data: any) => (
+                    <h3 key={data.name}>{data.name} - ({data.totalResults})</h3>
+                ))
+            }
+
+            <h2>Series</h2>
+            {
+                dashboardTvData.data && dashboardTvData.data.map((data: any) => (
+                    <h3 key={data.name}>{data.name} - ({data.totalResults})</h3>
+                ))
+            }
 
         </main>
     )
