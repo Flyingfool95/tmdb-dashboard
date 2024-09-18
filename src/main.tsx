@@ -1,11 +1,13 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Categories from './routes/Categories'
+import App from './App'
 import Dashboard from './routes/Dashboard'
 import Favorites from './routes/Favorites'
+import Genre from './routes/Genre'
+import Genres from './routes/Genres'
 import Media from './routes/Media'
-import App from './App'
 
 
 const router = createBrowserRouter([
@@ -19,8 +21,12 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
             {
-                path: '/categories',
-                element: <Categories />,
+                path: '/genres',
+                element: <Genres />,
+            },
+            {
+                path: '/genres/:genreId',
+                element: <Genre />,
             },
             {
                 path: '/media/:mediaId',
@@ -37,8 +43,12 @@ const router = createBrowserRouter([
 
 ])
 
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+        </QueryClientProvider>
     </StrictMode>,
 )
