@@ -1,18 +1,18 @@
-$primary-color-lightest: #f8fafc;
-$primary-color-lighter: #e2e8f0;
-$primary-color-light: #94a3b8;
-$primary-color: #64748b;
-$primary-color-dark: #475569;
-$primary-color-darker: #1e293b;
-$primary-color-darkest: #020617;
+$color-primary-lightest: #f8fafc;
+$color-primary-lighter: #e2e8f0;
+$color-primary-light: #94a3b8;
+$color-primary: #64748b;
+$color-primary-dark: #475569;
+$color-primary-darker: #1e293b;
+$color-primary-darkest: #020617;
 
-$secondary-color-lightest: #fffbeb;
-$secondary-color-lighter: #fde68a;
-$secondary-color-light: #fbbf24;
-$secondary-color: #f59e0b;
-$secondary-color-dark: #d97706;
-$secondary-color-darker: #92400e;
-$secondary-color-darkest: #451a03;
+$color-secondary-lightest: #fffbeb;
+$color-secondary-lighter: #fde68a;
+$color-secondary-light: #fbbf24;
+$color-secondary: #f59e0b;
+$color-secondary-dark: #d97706;
+$color-secondary-darker: #92400e;
+$color-secondary-darkest: #451a03;
 
 $size-base: 1rem;
 $size-0: 0rem;
@@ -28,11 +28,16 @@ $size-4xl: $size-base * 4; /* 64px */
 $size-5xl: $size-base * 5; /* 80px */
 $size-6xl: $size-base * 6; /* 96px */
 
+$bp-mobile-small: 375px;
+$bp-mobile: 540px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
 body {
     height: 100%;
     min-height: 100svh;
-    color: $primary-color-lightest;
-    background-color: $primary-color-darker;
+    color: $color-primary-lightest;
+    background-color: $color-primary-darker;
 
     font-family: sans-serif;
     letter-spacing: 0.5px;
