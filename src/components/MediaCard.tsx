@@ -8,7 +8,7 @@ export default function MediaCard({ media }: { media: any }) {
 
 
     return (
-        <Link to={`/media/${media.id}`} className="media-card">
+        <Link to={`/media/${media.id}`} className="media-card card-hover">
             <img
                 src={
                     TMDB_IMAGE_BASE_URL +

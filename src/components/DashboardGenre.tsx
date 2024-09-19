@@ -15,7 +15,10 @@ export default function DashboardGenre({
 
     return (
         <div className="dashboard-genre">
-            <Link to={`/genres/${data.name}`} className='dashboard-genre__title'><h3>{data.name} - ({data.totalResults})</h3></Link>
+            <Link to={`/genres/${data.name}`} className='dashboard-genre__title card-hover'>
+                <h3>{data.name}</h3>
+                <p className='dashboard-genre__total'>({data.totalResults})</p>
+            </Link>
             {
                 data.data && data.data.map((media: any) => (
                     <MediaCard key={media.id} media={media} />

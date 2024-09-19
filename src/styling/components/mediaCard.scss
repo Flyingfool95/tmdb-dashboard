@@ -14,21 +14,6 @@
 
     border-radius: var.$size-xs;
 
-    transition: 125ms ease-in-out;
-
-    outline: var.$size-2xs solid transparent;
-
-    &:hover,
-    &:focus {
-        transform: translateY(-(var.$size-xs));
-        outline-color: var.$color-secondary-light;
-    }
-
-    &:active {
-        outline-color: var.$color-secondary-dark;
-        transform: translateY(var.$size-0);
-    }
-
     &__details {
         position: absolute;
         bottom: var.$size-0;
