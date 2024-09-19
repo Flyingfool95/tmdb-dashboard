@@ -12,13 +12,25 @@
     color: var.$color-primary-lightest;
     text-decoration: none;
 
-    p {
-        margin: 0;
+    border-radius: var.$size-xs;
+
+    border: var.$size-2xs solid transparent;
+
+    transition: 125ms ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-color: var.$color-secondary-light;
+        transform: translateY(-(var.$size-xs));
+        outline: none;
+    }
+
+    &:active {
+        border-color: var.$color-secondary-dark;
+        transform: translateY(var.$size-0);
     }
 
     &__details {
-        transition: 125ms ease-in-out;
-
         position: absolute;
         bottom: var.$size-0;
         left: var.$size-0;
@@ -26,8 +38,8 @@
 
         padding: var.$size-lg var.$size-xs var.$size-sm;
 
-        color: var.$color-primary-light;
-        background-image: linear-gradient(to bottom, transparent -5%, var.$color-primary-darkest 30%);
+        color: var.$color-primary-lightest;
+        background-image: linear-gradient(to bottom, transparent -5%, rgba(var.$color-primary-darkest, 0.8) 30%);
     }
 
     &__title {
