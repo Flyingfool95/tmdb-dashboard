@@ -23,9 +23,6 @@ nav {
         }
     }
 
-    li {
-    }
-
     a {
         color: var.$color-primary-lightest;
         text-decoration: none;
@@ -37,5 +34,9 @@ nav {
         &.active {
             color: var.$color-secondary;
         }
+    }
+
+    @media (max-width: var.$bp-desktop) {
+        left: -(var.$size-7xl);
     }
 }

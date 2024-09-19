@@ -29,33 +29,78 @@
         font-style: italic;
     }
 
-    .media-card:nth-of-type(n + 17) {
-        display: none;
+    .media-card {
+        max-width: calc(100% / 15);
+
+        &:nth-of-type(n + 17) {
+            display: none;
+        }
     }
 
     @media (max-width: 3000px) {
-        .media-card:nth-of-type(n + 16) {
-            display: none;
+        .media-card {
+            max-width: calc(100% / 14);
+
+            &:nth-of-type(n + 16) {
+                display: none;
+            }
         }
     }
     @media (max-width: 2750px) {
-        .media-card:nth-of-type(n + 14) {
-            display: none;
+        .media-card {
+            max-width: calc(100% / 13);
+
+            &:nth-of-type(n + 14) {
+                display: none;
+            }
         }
     }
     @media (max-width: 2500px) {
-        .media-card:nth-of-type(n + 12) {
-            display: none;
+        .media-card {
+            max-width: calc(100% / 11);
+
+            &:nth-of-type(n + 12) {
+                display: none;
+            }
         }
     }
     @media (max-width: 2250px) {
-        .media-card:nth-of-type(n + 10) {
-            display: none;
+        .media-card {
+            max-width: calc(100% / 9);
+
+            &:nth-of-type(n + 10) {
+                display: none;
+            }
         }
     }
     @media (max-width: 2000px) {
-        .media-card:nth-of-type(n + 8) {
-            display: none;
+        .media-card {
+            max-width: calc(100% / 6);
+
+            &:nth-of-type(n + 8) {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: var.$bp-desktop-large) {
+        flex-wrap: wrap;
+
+        &__title {
+            flex-basis: 100%;
+        }
+        .media-card {
+            max-width: calc(25% - var.$size-sm);
+        }
+    }
+    @media (max-width: var.$bp-tablet) {
+        .media-card {
+            max-width: calc(33% - var.$size-sm);
+        }
+    }
+    @media (max-width: var.$bp-mobile) {
+        .media-card {
+            max-width: calc(50% - var.$size-sm);
         }
     }
 }

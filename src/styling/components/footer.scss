@@ -23,5 +23,7 @@
 @media (max-width: var.$bp-desktop) {
     .footer {
         flex-direction: column;
+        margin-left: var.$size-0;
+
     }
 }

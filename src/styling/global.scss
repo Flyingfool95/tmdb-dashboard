@@ -33,6 +33,7 @@ $bp-mobile-small: 375px;
 $bp-mobile: 540px;
 $bp-tablet: 768px;
 $bp-desktop: 1024px;
+$bp-desktop-large: 1440px;
 
 body {
     height: 100%;
@@ -55,6 +56,10 @@ main {
     flex-grow: 1;
     padding: $size-m;
     margin-left: $size-7xl;
+
+    @media (max-width: $bp-desktop) {
+        margin-left: $size-0;
+    }
 }
 
 h1,
