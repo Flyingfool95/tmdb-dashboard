@@ -61,7 +61,7 @@ export default function useFetchDashboard() {
 
             return {
                 name: genreName,
-                data: data.results.slice(0, 5), //Only return the first 5 results of data
+                data: data.results.slice(0, 15), //Only return the first 15 results of data
                 totalPages: data.total_pages,
                 totalResults: data.total_results,
             };
