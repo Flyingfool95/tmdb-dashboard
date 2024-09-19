@@ -1,4 +1,5 @@
-import { useFetchDashboard } from "../hooks/useFetchDashboard";
+import DashboardGenre from '../components/DashboardGenre';
+import useFetchDashboard from './../hooks/useFetchDashboard';
 
 
 
@@ -7,23 +8,25 @@ export default function Dashboard() {
     const {
         dashboardMovieData,
         dashboardTvData,
-        movieGenres,
-        tvGenres,
     } = useFetchDashboard();
+
+
+    console.log(dashboardMovieData.data)
 
     return (
         <main className='dashboard'>
             <h2>Movies</h2>
             {
                 dashboardMovieData.data && dashboardMovieData.data.map((data: any) => (
-                    <h3 key={data.name}>{data.name} - ({data.totalResults})</h3>
+                    <DashboardGenre data={data} key={data.name} />
                 ))
             }
 
             <h2>Series</h2>
             {
                 dashboardTvData.data && dashboardTvData.data.map((data: any) => (
-                    <h3 key={data.name}>{data.name} - ({data.totalResults})</h3>
+                    <DashboardGenre data={data} key={data.name} />
+
                 ))
             }
 

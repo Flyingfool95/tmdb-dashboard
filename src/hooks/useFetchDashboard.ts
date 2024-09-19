@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useFetchGenres from "./useFetchGenres";
 import { useGlobalConstants } from "../state/useGlobalConstants";
 
-export function useFetchDashboard() {
+export default function useFetchDashboard() {
 
     const { TMDB_API_KEY, TMDB_BASE_URL, TMDB_RESPONSE_LANG } = useGlobalConstants();
 
