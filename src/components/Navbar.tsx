@@ -2,22 +2,21 @@ import { NavLink, useLocation } from 'react-router-dom';
 import '../styling/components/navbar.scss';
 import useFetchGenres from '../hooks/useFetchGenres';
 import { useEffect, useState } from 'react';
+import NavbarSubMenu from './NavbarSubMenu';
 
 export default function Navbar() {
 
     const { movieGenres, tvGenres } = useFetchGenres();
 
-    const location = useLocation();
-
     const [isSeries, setIsSeries] = useState(false);
     const [isMovies, setIsMovies] = useState(false);
-
+    
+    const location = useLocation();
+    
     useEffect(() => {
         setIsSeries(location.pathname.includes('series'));
         setIsMovies(location.pathname.includes('movies'));
     }, [location]);
-
-
 
 
     return (
@@ -27,25 +26,17 @@ export default function Navbar() {
                 <li><NavLink to="/">Dashboard</NavLink></li>
                 <li><NavLink to="/movies">Movies</NavLink></li>
                 {
-                    isMovies && (
+                    isMovies && movieGenres.data && (
 
-                        <ul>
-                            {movieGenres.data.genres.map((genre: any) => (
-                                <li key={genre.id}><NavLink to={`/movies/${genre.name}`}>{genre.name}</NavLink></li>
-                            ))}
-                        </ul>
+                        <NavbarSubMenu genres={movieGenres.data.genres} mediaType="movies" />
 
                     )
                 }
                 <li><NavLink to="/series">Series</NavLink></li>
                 {
-                    isSeries && (
+                    isSeries && tvGenres.data && (
 
-                        <ul>
-                            {tvGenres.data.genres.map((genre: any) => (
-                                <li key={genre.id}><NavLink to={`/series/${genre.name}`}>{genre.name}</NavLink></li>
-                            ))}
-                        </ul>
+                        <NavbarSubMenu genres={tvGenres.data.genres} mediaType="series" />
 
                     )
                 }
