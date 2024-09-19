@@ -1,5 +1,3 @@
-
-
 export default function useUtilityFunctions() {
 
     const slugifyText = (text: string) => {

@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom"
-import useUtilityFunctions from "../hooks/useUtilityFunctions"
+import { NavLink } from "react-router-dom";
+import useUtilityFunctions from "../hooks/useUtilityFunctions";
 
 export default function NavbarSubMenu(
     {
