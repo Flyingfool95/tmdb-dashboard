@@ -1,8 +1,8 @@
 @use "../global.scss" as var;
 
 .media-card {
+    display: block;
     position: relative;
-
     overflow: hidden;
 
     max-width: 200px;
@@ -14,19 +14,18 @@
 
     border-radius: var.$size-xs;
 
-    border: var.$size-2xs solid transparent;
-
     transition: 125ms ease-in-out;
+
+    outline: var.$size-2xs solid transparent;
 
     &:hover,
     &:focus {
-        border-color: var.$color-secondary-light;
         transform: translateY(-(var.$size-xs));
-        outline: none;
+        outline-color: var.$color-secondary-light;
     }
 
     &:active {
-        border-color: var.$color-secondary-dark;
+        outline-color: var.$color-secondary-dark;
         transform: translateY(var.$size-0);
     }
 
