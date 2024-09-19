@@ -4,6 +4,12 @@
     &__genre-list {
         display: flex;
         flex-direction: column;
-        gap: var.$size-xl;
+        gap: var.$size-2xl;
+    }
+
+    @media (max-width: var.$bp-tablet) {
+        &__genre-list {
+            gap: var.$size-5xl;
+        }
     }
 }

@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { useGlobalConstants } from '../state/useGlobalConstants';
 import '../styling/components/mediaCard.scss';
 
-export default function MediaCard({ media }: { media: any }) {
+export default function MediaCard({ media, mediaType }: { media: any, mediaType: string }) {
 
     const { TMDB_IMAGE_BASE_URL, TMDB_IMAGE_SIZE_THUMBNAIL } = useGlobalConstants()
 
 
     return (
-        <Link to={`/media/${media.id}`} className="media-card card-hover">
+        <Link to={`/${mediaType}/${media.id}`} className="media-card card-hover">
             <img
                 src={
                     TMDB_IMAGE_BASE_URL +

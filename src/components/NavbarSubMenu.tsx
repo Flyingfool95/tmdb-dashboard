@@ -19,7 +19,7 @@ export default function NavbarSubMenu(
                 <li
                     key={genre.id}>
                     <NavLink
-                        to={`/${mediaType}/${slugifyText(genre.name)}`}>
+                        to={`/${mediaType}/genres/${slugifyText(genre.name)}`}>
                         {genre.name}
                     </NavLink>
                 </li>
