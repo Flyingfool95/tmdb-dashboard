@@ -11,5 +11,4 @@ export const useGlobalConstants = create(() => ({
     TMDB_IMAGE_SIZE_POSTER: 'w780',
     TMDB_IMAGE_SIZE_THUMBNAIL: 'w342',
     TMDB_IMAGE_SIZE_THUMBNAIL_MOBILE: 'w154',
-
 }))

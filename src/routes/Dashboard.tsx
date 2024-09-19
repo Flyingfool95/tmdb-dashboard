@@ -21,7 +21,7 @@ export default function Dashboard() {
             <div className="dashboard__genre-list">
                 {
                     dashboardMovieData.data && dashboardMovieData.data.map((data: any) => (
-                        <DashboardGenre data={data} mediaType={'movies'} key={data.name} />
+                        <DashboardGenre data={data} mediaType={'movies'} key={data.genre} />
                     ))
                 }
             </div>
@@ -30,7 +30,7 @@ export default function Dashboard() {
             <div className="dashboard__genre-list">
                 {
                     dashboardTvData.data && dashboardTvData.data.map((data: any) => (
-                        <DashboardGenre data={data} mediaType={'series'} key={data.name} />
+                        <DashboardGenre data={data} mediaType={'series'} key={data.genre} />
 
                     ))
                 }

@@ -36,9 +36,12 @@
 
         &__title {
             flex-basis: calc(100% + var.$size-m * 2);
+            
+            align-items: center;
+            
             padding: var.$size-m;
 
-            align-items: center;
+            background-color: rgba(var.$color-primary-darkest, 0.5);
 
             border-radius: var.$size-0;
 
