@@ -4,8 +4,8 @@ export default function Genre() {
 
     const { genreId } = useParams();
     return (
-        <div >
+        <main >
             <h1>Genre: {genreId}</h1>
-        </div>
+        </main>
     )
 }

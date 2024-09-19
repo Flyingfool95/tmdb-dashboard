@@ -6,7 +6,10 @@
     justify-content: center;
     column-gap: var.$size-lg;
     row-gap: var.$size-m;
+
     padding: var.$size-sm var.$size-xl;
+    margin-left: var.$size-7xl;
+
     background-color: var.$color-primary-darkest;
 
     p {

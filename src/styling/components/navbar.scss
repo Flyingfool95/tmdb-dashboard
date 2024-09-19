@@ -1,0 +1,10 @@
+@use "../global.scss" as var;
+
+nav {
+    position: fixed;
+    width: var.$size-7xl;
+    height: 100%;
+    padding: var.$size-m;
+
+    background-color: var.$color-primary-dark;
+}

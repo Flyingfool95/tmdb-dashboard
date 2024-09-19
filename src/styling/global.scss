@@ -27,6 +27,7 @@ $size-3xl: $size-base * 3; /* 48px */
 $size-4xl: $size-base * 4; /* 64px */
 $size-5xl: $size-base * 5; /* 80px */
 $size-6xl: $size-base * 6; /* 96px */
+$size-7xl: $size-base * 18; /* 288px */
 
 $bp-mobile-small: 375px;
 $bp-mobile: 540px;
@@ -51,8 +52,9 @@ body {
 }
 
 main {
-    padding: $size-xl;
     flex-grow: 1;
+    padding: $size-m;
+    margin-left: $size-7xl;
 }
 
 h1,

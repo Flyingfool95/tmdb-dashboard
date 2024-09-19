@@ -1,8 +1,8 @@
 
 export default function Media() {
     return (
-        <div>
+        <main>
             <h1>Media</h1>
-        </div>
+        </main>
     )
 }

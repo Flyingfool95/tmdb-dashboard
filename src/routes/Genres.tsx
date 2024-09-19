@@ -1,8 +1,8 @@
 
 export default function Genres() {
     return (
-        <div>
+        <main>
             <h1>Genres</h1>
-        </div>
+        </main>
     )
 }
