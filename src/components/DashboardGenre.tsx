@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import '../styling/components/dashboardGenre.scss';
 import MediaCard from './MediaCard';
-import useUtilityFunctions from '../hooks/useUtilityFunctions';
 
 export default function DashboardGenre({
     data, mediaType
 }: {
     data: {
-        name: string,
+        genre: string,
+        genreId: number,
         data: any[],
         totalPages: number,
         totalResults: number
@@ -15,12 +15,10 @@ export default function DashboardGenre({
     mediaType: 'movies' | 'series',
 }) {
 
-    const { slugifyText } = useUtilityFunctions();
-
     return (
         <div className="dashboard-genre">
-            <Link to={`/${mediaType}/genres/${slugifyText(data.name)}`} className='dashboard-genre__title card-hover'>
-                <h3>{data.name}</h3>
+            <Link to={`/${mediaType}/genre/${data.genreId}`} className='dashboard-genre__title card-hover'>
+                <h3>{data.genre}</h3>
                 <p className='dashboard-genre__total'>({data.totalResults})</p>
             </Link>
             {

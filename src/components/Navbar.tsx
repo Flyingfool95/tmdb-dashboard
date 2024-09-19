@@ -22,7 +22,7 @@ export default function Navbar() {
     return (
         <nav>
             <h1>CC Wexo</h1>
-            <ul>
+            <ul className='navbar-menu'>
                 <li><NavLink to="/">Dashboard</NavLink></li>
                 <li><NavLink to="/movies">Movies</NavLink></li>
                 {

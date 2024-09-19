@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import useUtilityFunctions from "../hooks/useUtilityFunctions";
 
 export default function NavbarSubMenu(
     {
@@ -10,16 +9,14 @@ export default function NavbarSubMenu(
         mediaType: string
     }
 ) {
-    
-    const { slugifyText } = useUtilityFunctions();
 
     return (
-        <ul>
+        <ul className='navbar-submenu'>
             {genres.map((genre: any) => (
                 <li
                     key={genre.id}>
                     <NavLink
-                        to={`/${mediaType}/genres/${slugifyText(genre.name)}`}>
+                        to={`/${mediaType}/genre/${genre.id}`}>
                         {genre.name}
                     </NavLink>
                 </li>

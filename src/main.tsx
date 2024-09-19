@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                 element: <Media />,
             },
             {
-                path: '/movies/genres/:genreId',
+                path: '/movies/genre/:genreId',
                 element: <Genre />,
             },
             {
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
                 element: <Media />,
             },
             {
-                path: '/series/genres/:genreId',
+                path: '/series/genre/:genreId',
                 element: <Genre />,
             },
             {

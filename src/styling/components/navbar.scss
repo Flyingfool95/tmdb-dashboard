@@ -2,9 +2,14 @@
 
 nav {
     position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    gap: var.$size-xl;
+
+    padding: var.$size-m;
     width: var.$size-7xl;
     height: 100%;
-    padding: var.$size-m;
 
     background-color: var.$color-primary-dark;
 
@@ -17,8 +22,14 @@ nav {
         flex-direction: column;
 
         gap: var.$size-xs;
+    }
 
-        ul {
+    .navbar-menu {
+        > li {
+            font-size: var.$size-lg;
+        }
+
+        > ul {
             gap: var.$size-2xs;
         }
     }

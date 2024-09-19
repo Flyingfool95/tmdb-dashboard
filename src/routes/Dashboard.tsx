@@ -16,8 +16,8 @@ export default function Dashboard() {
 
     return (
         <main className='dashboard'>
-            <h2>Movies</h2>
 
+            <h2>Movies</h2>
             <div className="dashboard__genre-list">
                 {
                     dashboardMovieData.data && dashboardMovieData.data.map((data: any) => (

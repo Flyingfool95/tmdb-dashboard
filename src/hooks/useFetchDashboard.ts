@@ -60,7 +60,8 @@ export default function useFetchDashboard() {
             if (!data.results) throw new Error(data.status_message)
 
             return {
-                name: genreName,
+                genre: genreName,
+                genreId: genreId,
                 data: data.results.slice(0, 15), //Only return the first 15 results of data
                 totalPages: data.total_pages,
                 totalResults: data.total_results,
