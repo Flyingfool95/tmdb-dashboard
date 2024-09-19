@@ -1,0 +1,40 @@
+@use "../global.scss" as var;
+
+.media-card {
+    position: relative;
+
+    overflow: hidden;
+
+    max-width: 200px;
+    flex-basis: 18%;
+    flex-grow: 1;
+
+    color: var.$color-primary-lightest;
+    text-decoration: none;
+
+    p {
+        margin: 0;
+    }
+
+    &__details {
+        transition: 125ms ease-in-out;
+
+        position: absolute;
+        bottom: var.$size-0;
+        left: var.$size-0;
+        right: var.$size-0;
+
+        padding: var.$size-lg var.$size-xs var.$size-sm;
+
+        color: var.$color-primary-light;
+        background-image: linear-gradient(to bottom, transparent -5%, var.$color-primary-darkest 30%);
+    }
+
+    &__title {
+        margin: 0;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

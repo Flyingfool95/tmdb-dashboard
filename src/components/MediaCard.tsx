@@ -1,14 +1,30 @@
-import { useGlobalConstants } from "../state/useGlobalConstants"
+import { Link } from 'react-router-dom';
+import { useGlobalConstants } from '../state/useGlobalConstants';
+import '../styling/components/mediaCard.scss';
 
-export default function MediaCard({ movie }: { movie: any }) {
+export default function MediaCard({ media }: { media: any }) {
 
     const { TMDB_IMAGE_BASE_URL, TMDB_IMAGE_SIZE_THUMBNAIL } = useGlobalConstants()
 
 
     return (
-        <div className="media-card">
-            <img src={TMDB_IMAGE_BASE_URL + TMDB_IMAGE_SIZE_THUMBNAIL + movie.poster_path} alt={`${movie.title} poster`} />
-            <h4>{movie.title} - ({movie.release_date?.slice(0, 4)})</h4>
-        </div>
+        <Link to={`/media/${media.id}`} className="media-card">
+            <img
+                src={
+                    TMDB_IMAGE_BASE_URL +
+                    TMDB_IMAGE_SIZE_THUMBNAIL +
+                    media.poster_path
+                }
+
+                alt={`${media.title} poster`}
+            />
+
+
+            <div className='media-card__details'>
+                <h4 className='media-card__title'>
+                    {media.original_title ?? media.original_name}
+                </h4>
+            </div>
+        </Link>
     )
 }

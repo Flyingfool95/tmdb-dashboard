@@ -1,0 +1,9 @@
+@use "../global.scss" as var;
+
+.dashboard {
+    &__genre-list {
+        display: flex;
+        flex-direction: column;
+        gap: var.$size-xl;
+    }
+}

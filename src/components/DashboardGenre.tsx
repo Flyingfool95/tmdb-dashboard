@@ -1,4 +1,6 @@
-import MediaCard from "./MediaCard"
+import { Link } from 'react-router-dom';
+import '../styling/components/dashboardGenre.scss';
+import MediaCard from './MediaCard';
 
 export default function DashboardGenre({
     data
@@ -13,10 +15,10 @@ export default function DashboardGenre({
 
     return (
         <div className="dashboard-genre">
-            <h3>{data.name} - ({data.totalResults})</h3>
+            <Link to={`/genres/${data.name}`} className='dashboard-genre__title'><h3>{data.name} - ({data.totalResults})</h3></Link>
             {
-                data.data && data.data.map((movie: any) => (
-                    <MediaCard key={movie.id} movie={movie} />
+                data.data && data.data.map((media: any) => (
+                    <MediaCard key={media.id} media={media} />
                 ))
             }
         </div>

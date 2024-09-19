@@ -1,0 +1,14 @@
+@use "../global.scss" as var;
+
+.dashboard-genre {
+    display: flex;
+    gap: var.$size-m;
+
+    &__title {
+        flex-basis: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var.$color-primary-darkest;
+    }
+}

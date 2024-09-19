@@ -53,7 +53,7 @@ export default function useFetchDashboard() {
     const fetchDashboardData = async (genreId: number, genreName: string, type: "movie" | "tv") => {
 
         try {
-            const response = await fetch(`${TMDB_BASE_URL}/discover/${type}${TMDB_API_KEY}${TMDB_RESPONSE_LANG}&with_genres=${genreId}&sort_by=popularity&page=1`);
+            const response = await fetch(`${TMDB_BASE_URL}/discover/${type}${TMDB_API_KEY}${TMDB_RESPONSE_LANG}&with_genres=${genreId}&include_adult=false&sort_by=popularity&page=1`);
 
             const data = await response.json();
 

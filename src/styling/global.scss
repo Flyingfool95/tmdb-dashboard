@@ -54,3 +54,23 @@ main {
     padding: $size-xl;
     flex-grow: 1;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+h1{
+    font-size: $size-2xl;
+}
+
+h2{
+    font-size: $size-xl;
+}
+
+h3{
+    font-size: $size-lg;
+}
+
+h4{
+    font-size: $size-m;
+}
