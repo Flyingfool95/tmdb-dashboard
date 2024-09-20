@@ -31,14 +31,58 @@
         font-style: italic;
     }
 
+    @media (max-width: 3000px) {
+        .media-card {
+            &:nth-of-type(n + 16) {
+                display: none;
+            }
+        }
+    }
+    @media (max-width: 2750px) {
+        .media-card {
+            &:nth-of-type(n + 14) {
+                display: none;
+            }
+        }
+    }
+    @media (max-width: 2500px) {
+        .media-card {
+            &:nth-of-type(n + 12) {
+                display: none;
+            }
+        }
+    }
+    @media (max-width: 2250px) {
+        .media-card {
+            &:nth-of-type(n + 10) {
+                display: none;
+            }
+        }
+    }
+    @media (max-width: 2000px) {
+        .media-card {
+            &:nth-of-type(n + 8) {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: var.$bp-desktop-large) {
+        .media-card {
+            &:nth-of-type(n + 6) {
+                display: none;
+            }
+        }
+    }
+
     @media (max-width: var.$bp-desktop) {
         flex-wrap: wrap;
 
         &__title {
             flex-basis: calc(100% + var.$size-m * 2);
-            
+
             align-items: center;
-            
+
             padding: var.$size-m;
 
             background-color: rgba(var.$color-primary-darkest, 0.5);
@@ -55,6 +99,31 @@
                 background-color: var.$color-primary-darkest !important;
                 color: var.$color-primary-lighter !important;
                 transform: translateY(var.$size-0) !important;
+            }
+        }
+
+        .media-card {
+            &:nth-of-type(6),
+            &:nth-of-type(7),
+            &:nth-of-type(8),
+            &:nth-of-type(9) {
+                display: block;
+            }
+        }
+    }
+
+    @media (max-width: var.$bp-mobile) {
+        .media-card {
+            &:nth-of-type(10) {
+                display: block;
+            }
+        }
+    }
+
+    @media (max-width: var.$bp-mobile-small) {
+        .media-card {
+            &:nth-of-type(10) {
+                display: none;
             }
         }
     }
