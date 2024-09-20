@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useFetchGenres from "./useFetchGenres";
-import { useGlobalConstants } from "../state/useGlobalConstants";
+import useGlobalConstants from "../state/useGlobalConstants";
 
 export default function useFetchDashboard() {
 
@@ -22,7 +22,7 @@ export default function useFetchDashboard() {
                 movieGenres.data.genres.map((genre: { id: number, name: string }) => fetchDashboardData(genre.id, genre.name, "movie")),
             ),
         enabled: !!movieGenres.data,
-    })
+    });
 
     /**
      * Fetches the dashboard data for TV shows.
@@ -37,7 +37,7 @@ export default function useFetchDashboard() {
                 tvGenres.data.genres.map((genre: { id: number, name: string }) => fetchDashboardData(genre.id, genre.name, "tv")),
             ),
         enabled: !!tvGenres.data,
-    })
+    });
 
     /**
      * Fetches the dashboard data for a specific genre.
@@ -57,7 +57,7 @@ export default function useFetchDashboard() {
 
             const data = await response.json();
 
-            if (!data.results) throw new Error(data.status_message)
+            if (!data.results) throw new Error(data.status_message);
 
             return {
                 genre: genreName,
@@ -68,10 +68,10 @@ export default function useFetchDashboard() {
             };
 
         } catch (error) {
-            console.error(error)
-            return []
+            console.error(error);
+            return [];
         }
-    }
+    };
 
     return {
         dashboardMovieData,

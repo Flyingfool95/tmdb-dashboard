@@ -11,9 +11,10 @@ export default function usePathname() {
     useEffect(() => {
         if (location.pathname.includes("movies")) {
             setMediaType("movies");
-        } else {
+        } else if (location.pathname.includes("series")) {
             setMediaType("series");
-
+        } else {
+            setMediaType("");
         }
     }, [location]);
 
