@@ -6,7 +6,6 @@ import App from './App'
 import Dashboard from './routes/Dashboard'
 import Favorites from './routes/Favorites'
 import Genre from './routes/Genre'
-import Genres from './routes/Genres'
 import Media from './routes/Media'
 
 
@@ -21,20 +20,12 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
             {
-                path: '/movies',
-                element: <Genres />,
-            },
-            {
                 path: '/movies/:movieId',
                 element: <Media />,
             },
             {
                 path: '/movies/genre/:genreId',
                 element: <Genre />,
-            },
-            {
-                path: '/series',
-                element: <Genres />,
             },
             {
                 path: '/series/:serieId',

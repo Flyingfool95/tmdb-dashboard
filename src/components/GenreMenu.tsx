@@ -1,18 +1,15 @@
 import { NavLink } from "react-router-dom";
+import useFetchGenres from "../hooks/useFetchGenres";
+import usePathname from "../hooks/usePathname";
 
-export default function NavbarSubMenu(
-    {
-        genres,
-        mediaType
-    }: {
-        genres: any,
-        mediaType: string
-    }
-) {
+export default function GenreMenu() {
+
+    const { currentGenres } = useFetchGenres();
+    const { mediaType } = usePathname();
 
     return (
-        <ul className='navbar-submenu'>
-            {genres.map((genre: any) => (
+        <ul className='genre-menu'>
+            {currentGenres && currentGenres.map((genre: any) => (
                 <li
                     key={genre.id}>
                     <NavLink

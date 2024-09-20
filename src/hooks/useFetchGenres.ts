@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import usePathname from "./usePathname";
 import { useGlobalConstants } from "../state/useGlobalConstants";
+import { useGenreState } from "../state/useGenreState";
 
 export default function useFetchGenres() {
 
+    const { currentGenres, setCurrentGenres } = useGenreState();
     const { TMDB_API_KEY, TMDB_BASE_URL } = useGlobalConstants();
-
+    const { mediaType } = usePathname();
 
     /**
      * Fetches the list of movie genres from the TMDB API.
@@ -44,9 +48,18 @@ export default function useFetchGenres() {
         }
     }
 
+
+    useEffect(() => {
+        if (movieGenres.data || tvGenres.data) {
+            setCurrentGenres(mediaType === "movies" ? movieGenres.data.genres : tvGenres.data.genres);
+        }
+
+    }, [movieGenres.data, tvGenres.data, setCurrentGenres, mediaType])
+
     return {
         movieGenres,
         tvGenres,
+        currentGenres,
     }
 
 }

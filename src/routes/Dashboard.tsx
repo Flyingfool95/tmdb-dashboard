@@ -11,9 +11,6 @@ export default function Dashboard() {
         dashboardTvData,
     } = useFetchDashboard();
 
-
-    console.log(dashboardTvData.data)
-
     return (
         <main className='dashboard'>
 
