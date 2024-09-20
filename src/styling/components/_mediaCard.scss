@@ -10,6 +10,9 @@
 
     border-radius: $size-xs;
 
+    flex-basis: 5%;
+    flex-grow: 1;
+
     &__details {
         position: absolute;
         bottom: $size-0;
@@ -28,6 +31,9 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    img {
+        object-fit: cover;
     }
 
     @media (max-width: $bp-desktop) {
