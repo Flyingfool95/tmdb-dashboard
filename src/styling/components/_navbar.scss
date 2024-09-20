@@ -25,11 +25,13 @@
         height: $size-2xs;
 
         background-color: $color-primary-lightest;
+        box-shadow: 0 0 $size-2xs 1px $color-primary-darkest;
         border-radius: $size-2xl;
     }
 
     &.open {
         span {
+            box-shadow: none;
             width: calc($size-xl * 1.33);
             &:nth-of-type(1) {
                 rotate: -45deg;
