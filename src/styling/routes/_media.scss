@@ -1,0 +1,29 @@
+@use "../variables.scss" as *;
+
+.media {
+    display: flex;
+
+    gap: $size-xl;
+
+    min-height: $size-8xl;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 100000px rgba($color-primary-darkest, 0.9);
+
+    &__poster {
+        flex-basis: 20%;
+        flex-grow: 1;
+        overflow: hidden;
+    }
+
+    img {
+        object-fit: contain;
+    }
+
+    &__details {
+        flex-basis: 60%;
+        flex-grow: 1;
+    }
+}

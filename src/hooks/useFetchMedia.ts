@@ -6,12 +6,16 @@ export default function useFetchMedia() {
 
     const fetchMedia = async (mediaId: string, mediaType: string) => {
 
+        if (!mediaType) return null;
+        
         try {
             const type = mediaType === 'movies' ? 'movie' : 'tv';
 
             const response = await fetch(`${TMDB_BASE_URL}/${type}/${mediaId}${TMDB_API_KEY}&language=${TMDB_RESPONSE_LANG}`);
 
             const data = await response.json();
+
+            if (!data) throw new Error(data.status_message);
 
             console.log(data)
             return data;
