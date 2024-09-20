@@ -1,11 +1,11 @@
 import useGlobalConstants from "../state/useGlobalConstants";
 import usePathname from "./usePathname";
 
-export default function useFetchGenresData() {
+export default function useFetchGenreData() {
     const { TMDB_API_KEY, TMDB_BASE_URL, TMDB_RESPONSE_LANG } = useGlobalConstants();
     const { mediaType } = usePathname();
 
-    const fetchGenresData = async (genreId: string, pageNumber = 1) => {
+    const fetchGenreData = async (genreId: string, pageNumber = 1) => {
         const type = mediaType === 'movies' ? 'movie' : 'tv';
 
         try {
@@ -42,6 +42,6 @@ export default function useFetchGenresData() {
     };
 
     return {
-        fetchGenresData,
+        fetchGenreData,
     };
 }

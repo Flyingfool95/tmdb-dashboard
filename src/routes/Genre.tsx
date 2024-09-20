@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import GenreMenu from "../components/GenreMenu";
 import { useQuery } from "@tanstack/react-query";
-import useFetchGenresData from "../hooks/useFetchGenresData";
+import useFetchGenreData from "../hooks/useFetchGenreData";
 import { useEffect, useState } from "react";
 import useFetchGenres from "../hooks/useFetchGenres";
 import MediaGrid from "../components/MediaGrid";
@@ -11,7 +11,7 @@ import { GenreT } from "../types/genre";
 export default function Genre() {
 
     const { genreId } = useParams();
-    const { fetchGenresData } = useFetchGenresData();
+    const { fetchGenreData } = useFetchGenreData();
     const { currentGenres } = useFetchGenres();
     const { mediaType } = usePathname();
 
@@ -22,7 +22,7 @@ export default function Genre() {
 
     const genreData = useQuery({
         queryKey: ['genre-data', genreId, pageNumber, mediaType],
-        queryFn: () => fetchGenresData(genreId, pageNumber),
+        queryFn: () => fetchGenreData(genreId, pageNumber),
     })
 
 
