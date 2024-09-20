@@ -1,7 +1,15 @@
 @use "../variables.scss" as *;
 
-.media-grid{
+.media-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
     gap: $size-m;
+
+    @media (max-width: $bp-desktop) {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    @media (max-width: $bp-mobile) {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
 }

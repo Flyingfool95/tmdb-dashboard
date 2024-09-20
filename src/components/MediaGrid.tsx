@@ -8,8 +8,8 @@ export default function MediaGrid({ media }: { media: any }) {
     return (
         <div className="media-grid">
             {
-                media && media.map((media: any) => (
-                    <MediaCard key={media.id} media={media} mediaType={mediaType} />
+                media && media.map((item: any) => (
+                    <MediaCard key={item.id} media={item} mediaType={mediaType} />
                 ))
             }
         </div>

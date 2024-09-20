@@ -4,9 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import useFetchGenresData from "../hooks/useFetchGenresData";
 import { useEffect, useState } from "react";
 import useFetchGenres from "../hooks/useFetchGenres";
-import { GenreT } from "../types/genre";
 import MediaGrid from "../components/MediaGrid";
 import usePathname from "../hooks/usePathname";
+import { GenreT } from "../types/genre";
 
 export default function Genre() {
 
@@ -22,15 +22,9 @@ export default function Genre() {
 
     const genreData = useQuery({
         queryKey: ['genre-data', genreId, pageNumber, mediaType],
-        queryFn: () => fetchGenresData(genreId, mediaType === 'movies' ? 'movie' : 'tv', pageNumber),
+        queryFn: () => fetchGenresData(genreId, pageNumber),
     })
 
-
-    useEffect(() => {
-        if (genreData.data) {
-            console.log(genreData.data)
-        }
-    }, [genreData.data])
 
     useEffect(() => {
         setCurrentGenre(currentGenres.find((genre: GenreT) => genre?.id === parseInt(genreId)) ?? null);
@@ -42,7 +36,7 @@ export default function Genre() {
             <h1>{currentGenre?.name}</h1>
             <GenreMenu />
 
-            <MediaGrid media={genreData.data?.results} />
+            <MediaGrid media={genreData.data} />
         </main>
     )
 }
