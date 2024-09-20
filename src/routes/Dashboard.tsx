@@ -1,6 +1,5 @@
 import DashboardGenre from '../components/DashboardGenre';
 import useFetchDashboard from './../hooks/useFetchDashboard';
-import '../styling/routes/Dashboard.scss';
 
 
 
@@ -14,7 +13,7 @@ export default function Dashboard() {
     return (
         <main className='dashboard'>
 
-            <h2>Movies</h2>
+            <h2 className='dashboard__media-type-title'>Movies</h2>
             <div className="dashboard__genre-list">
                 {
                     dashboardMovieData.data && dashboardMovieData.data.map((data: any) => (
@@ -23,7 +22,7 @@ export default function Dashboard() {
                 }
             </div>
 
-            <h2>Series</h2>
+            <h2 className='dashboard__media-type-title'>Series</h2>
             <div className="dashboard__genre-list">
                 {
                     dashboardTvData.data && dashboardTvData.data.map((data: any) => (

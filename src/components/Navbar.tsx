@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import '../styling/components/navbar.scss';
 import useFetchGenres from '../hooks/useFetchGenres';
 import usePathname from '../hooks/usePathname';
 

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import '../styling/components/dashboardGenre.scss';
 import MediaCard from './MediaCard';
 
 export default function DashboardGenre({

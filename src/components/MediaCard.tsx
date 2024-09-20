@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import '../styling/components/mediaCard.scss';
 import useGlobalConstants from '../state/useGlobalConstants';
 
 export default function MediaCard({ media, mediaType }: { media: any, mediaType: string }) {

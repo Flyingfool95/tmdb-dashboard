@@ -1,8 +1,8 @@
-@use "../global.scss" as var;
+@use "../variables.scss" as *;
 
 .dashboard-genre {
     display: flex;
-    gap: var.$size-m;
+    gap: $size-m;
 
     &__title {
         flex-basis: 250px;
@@ -12,20 +12,20 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: var.$size-xs;
+        gap: $size-xs;
 
-        padding: var.$size-m;
+        padding: $size-m;
 
-        background-color: var.$color-primary-darkest;
-        color: var.$color-primary-lighter;
+        background-color: $color-primary-darkest;
+        color: $color-primary-lighter;
 
-        border-radius: var.$size-xs;
+        border-radius: $size-xs;
 
         text-decoration: none;
     }
 
     &__total {
-        font-size: var.$size-m;
+        font-size: $size-m;
         margin: 0;
         opacity: 0.6;
         font-style: italic;
@@ -67,7 +67,7 @@
         }
     }
 
-    @media (max-width: var.$bp-desktop-large) {
+    @media (max-width: $bp-desktop-large) {
         .media-card {
             &:nth-of-type(n + 6) {
                 display: none;
@@ -75,19 +75,19 @@
         }
     }
 
-    @media (max-width: var.$bp-desktop) {
+    @media (max-width: $bp-desktop) {
         flex-wrap: wrap;
 
         &__title {
-            flex-basis: calc(100% + var.$size-m * 2);
+            flex-basis: calc(100% + $size-m * 2);
 
             align-items: center;
 
-            padding: var.$size-m;
+            padding: $size-m;
 
-            background-color: rgba(var.$color-primary-darkest, 0.5);
+            background-color: rgba($color-primary-darkest, 0.5);
 
-            border-radius: var.$size-0;
+            border-radius: $size-0;
 
             margin-left: calc(-100vw / 2 + 100% / 2);
             margin-right: calc(-100vw / 2 + 100% / 2);
@@ -96,9 +96,9 @@
             &:hover,
             &:focus,
             &:active {
-                background-color: var.$color-primary-darkest !important;
-                color: var.$color-primary-lighter !important;
-                transform: translateY(var.$size-0) !important;
+                background-color: $color-primary-darkest !important;
+                color: $color-primary-lighter !important;
+                transform: translateY($size-0) !important;
             }
         }
 
@@ -112,7 +112,7 @@
         }
     }
 
-    @media (max-width: var.$bp-mobile) {
+    @media (max-width: $bp-mobile) {
         .media-card {
             &:nth-of-type(10) {
                 display: block;
@@ -120,7 +120,7 @@
         }
     }
 
-    @media (max-width: var.$bp-mobile-small) {
+    @media (max-width: $bp-mobile-small) {
         .media-card {
             &:nth-of-type(10) {
                 display: none;

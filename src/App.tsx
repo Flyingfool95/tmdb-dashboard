@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Footer from './components/Footer'
-import './styling/reset.scss'
-import './styling/global.scss'
+import './styling/main.scss'
 import Navbar from './components/Navbar'
 
 export default function App() {

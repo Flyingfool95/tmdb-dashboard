@@ -1,0 +1,73 @@
+@use "./variables.scss" as *;
+
+body {
+    height: 100%;
+    min-height: 100svh;
+    color: $color-primary-lightest;
+    background-color: $color-primary-darker;
+
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
+}
+
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main {
+    flex-grow: 1;
+    padding: $size-m;
+    margin-left: $size-7xl;
+
+    @media (max-width: $bp-desktop) {
+        margin-left: $size-0;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1 {
+    font-size: $size-2xl;
+}
+
+h2 {
+    font-size: $size-xl;
+}
+
+h3 {
+    font-size: $size-lg;
+}
+
+h4 {
+    font-size: $size-m;
+}
+
+/*Utils*/
+.card-hover {
+    transition: 125ms ease-in-out;
+
+    outline: none;
+
+    box-shadow: 0 0 0 $size-2xs transparent;
+
+    &:hover,
+    &:focus {
+        transform: translateY(-$size-xs);
+        box-shadow: 0 0 0 $size-2xs $color-secondary-light;
+    }
+
+    &:active {
+        transform: translateY($size-0);
+        box-shadow: 0 0 0 $size-2xs $color-secondary-dark;
+    }
+}

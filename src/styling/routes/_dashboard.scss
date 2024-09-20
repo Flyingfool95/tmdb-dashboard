@@ -1,6 +1,10 @@
-@use "../global.scss" as var;
+@use "../variables.scss" as var;
 
 .dashboard {
+    .media-type-title {
+        margin-bottom: var.$size-2xl;
+    }
+
     &__genre-list {
         display: flex;
         flex-direction: column;
