@@ -52,6 +52,41 @@ h4 {
     font-size: $size-lg;
 }
 
+@media (max-width: $bp-desktop-large) {
+    h1 {
+        font-size: $size-2xl;
+    }
+
+    h2 {
+        font-size: $size-xl;
+    }
+
+    h3 {
+        font-size: $size-lg;
+    }
+
+    h4 {
+        font-size: $size-lg;
+    }
+}
+@media (max-width: $bp-mobile) {
+    h1 {
+        font-size: $size-xl;
+    }
+
+    h2 {
+        font-size: $size-lg;
+    }
+
+    h3 {
+        font-size: $size-lg;
+    }
+
+    h4 {
+        font-size: $size-m;
+    }
+}
+
 /*Utils*/
 .card-hover {
     transition: 125ms ease-in-out;
