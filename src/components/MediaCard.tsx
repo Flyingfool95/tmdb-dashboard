@@ -6,12 +6,6 @@ export default function MediaCard({ media, mediaType }: { media: any, mediaType:
 
     const { TMDB_IMAGE_BASE_URL, TMDB_IMAGE_SIZE_THUMBNAIL } = useGlobalConstants()
 
-
-    if (media.poster_path === null) {
-        console.log(media)
-
-    }
-
     return (
         <Link to={`/${mediaType}/${media.id}`} className="media-card card-hover">
 
