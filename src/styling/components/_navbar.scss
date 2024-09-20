@@ -84,6 +84,10 @@ nav {
         gap: $size-xs;
     }
 
+    .navbar-title {
+        margin-top: $size-2xl;
+    }
+
     .navbar-menu {
         > li {
             font-size: $size-lg;

@@ -1,12 +1,13 @@
-@use './variables.scss';
-@use './reset.scss';
-@use './global.scss';
+@use "./variables.scss";
+@use "./reset.scss";
+@use "./global.scss";
 
 /* Routes */
-@use './routes/Dashboard.scss';
+@use "./routes/Dashboard.scss";
 
 /* Components */
-@use './components/navbar.scss';
-@use './components/mediaCard.scss';
-@use './components/dashboardGenre.scss';
-@use './components/footer.scss'
+@use "./components/navbar.scss";
+@use "./components/mediaCard.scss";
+@use "./components/dashboardGenre.scss";
+@use "./components/footer.scss";
+@use "./components/genreMenu.scss";

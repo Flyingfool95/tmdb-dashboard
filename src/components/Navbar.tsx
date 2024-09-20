@@ -23,7 +23,7 @@ export default function Navbar() {
             </button>
 
             <nav className={showMenu ? 'open' : ''}>
-                <h1><br />CC</h1>
+                <h1 className='navbar-title'>My Movies</h1>
                 <ul className='navbar-menu'>
                     <li>
                         <NavLink to="/" onClick={handleToggleMenu}>
