@@ -1,19 +1,19 @@
-@use "../variables.scss" as var;
+@use "../variables.scss" as *;
 
 .dashboard {
     .media-type-title {
-        margin-bottom: var.$size-2xl;
+        margin-bottom: $size-2xl;
     }
 
     &__genre-list {
         display: flex;
         flex-direction: column;
-        gap: var.$size-2xl;
+        gap: $size-2xl;
     }
 
-    @media (max-width: var.$bp-tablet) {
+    @media (max-width: $bp-tablet) {
         &__genre-list {
-            gap: var.$size-5xl;
+            gap: $size-5xl;
         }
     }
 }

@@ -1,53 +1,53 @@
-@use "../variables.scss" as var;
+@use "../variables.scss" as *;
 
 nav {
     position: fixed;
 
     display: flex;
     flex-direction: column;
-    gap: var.$size-xl;
+    gap: $size-xl;
 
-    padding: var.$size-m;
-    width: var.$size-7xl;
+    padding: $size-m;
+    width: $size-7xl;
     height: 100%;
 
-    background-color: var.$color-primary-dark;
+    background-color: $color-primary-dark;
 
     ul {
         list-style: none;
-        padding-left: var.$size-m;
+        padding-left: $size-m;
         margin: 0;
 
         display: flex;
         flex-direction: column;
 
-        gap: var.$size-xs;
+        gap: $size-xs;
     }
 
     .navbar-menu {
         > li {
-            font-size: var.$size-lg;
+            font-size: $size-lg;
         }
 
         > ul {
-            gap: var.$size-2xs;
+            gap: $size-2xs;
         }
     }
 
     a {
-        color: var.$color-primary-lightest;
+        color: $color-primary-lightest;
         text-decoration: none;
 
         &:hover {
-            color: var.$color-secondary-light;
+            color: $color-secondary-light;
         }
 
         &.active {
-            color: var.$color-secondary;
+            color: $color-secondary;
         }
     }
 
-    @media (max-width: var.$bp-desktop) {
-        left: -(var.$size-7xl);
+    @media (max-width: $bp-desktop) {
+        left: -($size-7xl);
     }
 }
