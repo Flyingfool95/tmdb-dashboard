@@ -3,7 +3,7 @@
 .dashboard {
     &__media-type-title {
         position: relative;
-        margin: $size-4xl auto $size-2xl;
+        margin: $size-m auto $size-2xl;
         text-align: center;
 
         &::after {
@@ -28,6 +28,8 @@
         display: flex;
         flex-direction: column;
         gap: $size-2xl;
+
+        margin-bottom: $size-4xl;
     }
 
     @media (max-width: $bp-tablet) {
