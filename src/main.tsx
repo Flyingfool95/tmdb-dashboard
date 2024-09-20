@@ -20,7 +20,7 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
             {
-                path: '/movies/:movieId',
+                path: '/movies/:mediaId',
                 element: <Media />,
             },
             {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
                 element: <Genre />,
             },
             {
-                path: '/series/:serieId',
+                path: '/series/:mediaId',
                 element: <Media />,
             },
             {
