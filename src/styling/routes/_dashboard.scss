@@ -1,8 +1,27 @@
 @use "../variables.scss" as *;
 
 .dashboard {
-    .media-type-title {
-        margin-bottom: $size-2xl;
+    &__media-type-title {
+        position: relative;
+        margin: $size-4xl auto $size-2xl;
+        text-align: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -$size-m;
+
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+            height: $size-2xs;
+
+            border-radius: $size-lg;
+
+            background-color: $color-primary;
+        }
     }
 
     &__genre-list {
