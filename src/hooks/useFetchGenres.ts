@@ -10,25 +10,20 @@ export default function useFetchGenres() {
 
     const [currentGenres, setCurrentGenres] = useState([]);
 
-    /**
-     * Fetches the list of movie genres from the TMDB API.
-     *
-     */
+    // Fetches the list of movie genres from the TMDB API.
     const movieGenres = useQuery({
         queryKey: ['movie-genres'],
         queryFn: () => fetchGenres("movie"),
     });
 
-    /**
-     * Fetches the list of TV genres from the TMDB API.
-     * 
-     */
+    // Fetches the list of TV genres from the TMDB API.
     const tvGenres = useQuery({
         queryKey: ['tv-genres'],
         queryFn: () => fetchGenres("tv"),
     });
 
 
+    // Fetches the list of movies/series in a genre from the TMDB API.
     const fetchGenres = async (type: "movie" | "tv") => {
         try {
             const response = await fetch(`${TMDB_BASE_URL}/genre/${type}/list?api_key=${TMDB_API_KEY}`);
@@ -46,6 +41,7 @@ export default function useFetchGenres() {
     }
 
 
+    // Set the current genres based on the media type.
     useEffect(() => {
         if (movieGenres.data || tvGenres.data) {
             if (mediaType === "movies") {
@@ -58,6 +54,7 @@ export default function useFetchGenres() {
         }
 
     }, [movieGenres.data, tvGenres.data, setCurrentGenres, mediaType]);
+
 
     return {
         movieGenres,

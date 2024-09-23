@@ -9,12 +9,7 @@ export default function useFetchDashboard() {
     const { movieGenres, tvGenres } = useFetchGenres();
 
 
-    /**
-     * Fetches the dashboard data for movies.
-     *
-     * This query is only enabled if the movie genres have been fetched.
-     * It fetches the data for each movie genre and returns an array of the results.
-     */
+    // Fetches the dashboard data for movies.
     const dashboardMovieData = useQuery({
         queryKey: ['dashboard-movie-data'],
         queryFn: () =>
@@ -24,12 +19,7 @@ export default function useFetchDashboard() {
         enabled: !!movieGenres.data,
     });
 
-    /**
-     * Fetches the dashboard data for TV shows.
-     *
-     * This query is only enabled if the TV genres have been fetched.
-     * It fetches the data for each TV genre and returns an array of the results.
-     */
+    // Fetches the dashboard data for TV.
     const dashboardTvData = useQuery({
         queryKey: ['dashboard-tv-data'],
         queryFn: () =>
@@ -39,17 +29,7 @@ export default function useFetchDashboard() {
         enabled: !!tvGenres.data,
     });
 
-    /**
-     * Fetches the dashboard data for a specific genre.
-     *
-     * @param {number} genreId The ID of the genre to fetch.
-     * @param {string} genreName The name of the genre to fetch.
-     * @param {string} type The type of media to fetch. Must be either "movie" or "tv".
-     *
-     * @returns {Promise<{name: string, data: any[], totalPages: number, totalResults: number}>} A promise that resolves to an object containing the name of the genre, an array of the results, the total number of pages, and the total number of results.
-     *
-     * @throws {Error} If the request fails or if the response does not contain the expected data.
-     */
+    // Fetches the dashboard data for a specific genre.
     const fetchDashboardData = async (genreId: number, genreName: string, type: "movie" | "tv") => {
 
         try {

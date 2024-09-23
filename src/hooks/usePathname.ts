@@ -7,7 +7,7 @@ export default function usePathname() {
 
     const [mediaType, setMediaType] = useState<string>("");
 
-
+    // Set the media type based on the pathname
     useEffect(() => {
         if (location.pathname.includes("movies")) {
             setMediaType("movies");

@@ -42,12 +42,6 @@ export default function Navbar() {
                             Series
                         </NavLink>
                     </li>
-
-                    <li>
-                        <NavLink to="/favorites" onClick={handleToggleMenu}>
-                            Favorites
-                        </NavLink>
-                    </li>
                 </ul>
             </nav>
         </>

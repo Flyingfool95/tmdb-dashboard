@@ -1,8 +1,6 @@
 import DashboardGenre from '../components/DashboardGenre';
 import useFetchDashboard from './../hooks/useFetchDashboard';
 
-
-
 export default function Dashboard() {
 
     const {

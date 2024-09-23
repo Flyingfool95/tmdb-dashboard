@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import Dashboard from './routes/Dashboard'
-import Favorites from './routes/Favorites'
 import Genre from './routes/Genre'
 import Media from './routes/Media'
 
@@ -34,10 +33,6 @@ const router = createBrowserRouter([
             {
                 path: '/series/genre/:genreId',
                 element: <Genre />,
-            },
-            {
-                path: '/favorites',
-                element: <Favorites />,
             },
         ],
     },

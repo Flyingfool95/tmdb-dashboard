@@ -4,9 +4,10 @@ import usePathname from "./usePathname";
 export default function useFetchGenreData() {
 
     const { TMDB_API_KEY, TMDB_BASE_URL, TMDB_RESPONSE_LANG } = useGlobalConstants();
-    
+
     const { mediaType } = usePathname();
 
+    //     * Fetches data for a specific genre and page number from the TMDB API.
     const fetchGenreData = async (genreId: string, pageNumber = 1) => {
         const type = mediaType === 'movies' ? 'movie' : 'tv';
 

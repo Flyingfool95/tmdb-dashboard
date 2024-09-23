@@ -11,6 +11,7 @@ export default function useFetchMedia() {
         TMDB_IMAGE_SIZE_POSTER
     } = useGlobalConstants();
 
+    // Fetches media data from the TMDB API.
     const fetchMedia = async (mediaId: string, mediaType: string) => {
 
         if (!mediaType) return null;
