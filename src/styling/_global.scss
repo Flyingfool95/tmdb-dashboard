@@ -23,6 +23,8 @@ main {
     padding: $size-m;
     margin-left: $size-7xl;
 
+    overflow-x: hidden;
+
     @media (max-width: $bp-desktop) {
         margin-left: $size-0;
     }

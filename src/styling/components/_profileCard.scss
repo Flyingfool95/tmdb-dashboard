@@ -1,6 +1,18 @@
+@use "../variables.scss" as *;
+
 .profile-card {
     img {
         aspect-ratio: 2 / 3;
         object-fit: cover;
+    }
+
+    .actor-name {
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    .role-name {
+        color: $color-secondary-light;
+        margin-top: 0;
     }
 }

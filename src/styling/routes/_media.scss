@@ -85,7 +85,49 @@
         }
 
         .profile-card {
-            max-width: $size-5xl;
+            flex-basis: 10%;
+            max-width: calc(100% / 8);
+            flex-grow: 1;
+        }
+    }
+
+    @media (max-width: $bp-desktop) {
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        &__poster {
+            flex-basis: 100%;
+            min-height: 400px;
+            img {
+                object-position: center;
+                max-height: 400px;
+                object-fit: cover;
+                object-position: 50% 25%;
+            }
+        }
+
+        &__genres {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        &__directors,
+        &__actors {
+            .profile-card {
+                flex-basis: 15%;
+                max-width: calc(100% / 5);
+                flex-grow: 1;
+            }
+        }
+    }
+    @media (max-width: $bp-mobile) {
+        &__directors,
+        &__actors {
+            .profile-card {
+                flex-basis: 25%;
+                max-width: calc(100% / 3);
+                flex-grow: 1;
+            }
         }
     }
 }

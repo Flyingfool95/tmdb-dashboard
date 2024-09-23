@@ -33,7 +33,9 @@ export default function Genre() {
 
     return (
         <main>
-            <h1>{currentGenre?.name}</h1>
+            <div className="genre-hero">
+                <h1>{currentGenre?.name}</h1>
+            </div>
             <GenreMenu />
 
             <MediaGrid media={genreData.data} />

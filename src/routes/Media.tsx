@@ -52,33 +52,42 @@ export default function Media() {
 
                 <p>{mediaData.data.description}</p>
 
+
                 <div className="media__directors">
                     <h2>Directors</h2>
 
                     {
-                        creditsData.data.directors &&
-                        <ul>
-                            {
-                                creditsData.data.directors.map((cast: any) => (
-                                    <ProfileCard key={cast.id} cast={cast} />
-                                ))
-                            }
-                        </ul>
+                        creditsData.data.directors.length > 0 ?
+                            <ul>
+                                {
+                                    creditsData.data.directors.map((cast: any) => (
+                                        <ProfileCard key={cast.id} cast={cast} />
+                                    ))
+                                }
+                            </ul>
+                            :
+                            <p>No directors found</p>
                     }
                 </div>
+
                 <div className="media__actors">
                     <h2>Actors</h2>
-                    <ul>
-                        {
-                            creditsData.data.actors && creditsData.data.actors.map((cast: any) => (
-                                <ProfileCard key={cast.id} cast={cast} />
-                            ))
-                        }
-                    </ul>
+                    {
+                        creditsData.data.actors.length > 0 ?
+                            <ul>
+                                {
+                                    creditsData.data.actors.map((cast: any) => (
+                                        <ProfileCard key={cast.id} cast={cast} />
+                                    ))
+                                }
+                            </ul>
+                            :
+                            <p>No actors found</p>
+                    }
                 </div>
             </div>
 
-        </main>
+        </main >
 
     )
 }
