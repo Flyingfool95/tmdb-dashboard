@@ -16,7 +16,7 @@ export default function useFetchGenreData() {
 
             // Create fetch promises for each page
             const requests = pages.map(page =>
-                fetch(`${TMDB_BASE_URL}/discover/${type}${TMDB_API_KEY}&with_genres=${genreId}&language=${TMDB_RESPONSE_LANG}&page=${page}`)
+                fetch(`${TMDB_BASE_URL}/discover/${type}?api_key=${TMDB_API_KEY}&with_genres=${genreId}&language=${TMDB_RESPONSE_LANG}&page=${page}`)
             );
 
             // Wait for all fetch requests to complete

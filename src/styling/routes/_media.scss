@@ -2,10 +2,9 @@
 
 .media {
     display: flex;
+    flex-wrap: wrap;
 
     gap: $size-xl;
-
-    min-height: $size-8xl;
 
     background-repeat: no-repeat;
     background-position: center;
@@ -16,14 +15,77 @@
         flex-basis: 20%;
         flex-grow: 1;
         overflow: hidden;
-    }
-
-    img {
-        object-fit: contain;
+        img {
+            object-fit: contain;
+        }
     }
 
     &__details {
         flex-basis: 60%;
         flex-grow: 1;
+
+        h1 {
+            margin-bottom: $size-xs;
+        }
+    }
+
+    &__year {
+        font-weight: bold;
+        margin: 0;
+        padding: $size-xs $size-m;
+        border-radius: $size-m;
+
+        width: fit-content;
+
+        background-color: $color-primary-light;
+        color: $color-primary-darkest;
+    }
+
+    &__genres {
+        list-style: none;
+        padding: 0;
+        display: flex;
+
+        a {
+            text-decoration: none;
+            color: $color-primary-lighter;
+            font-weight: bold;
+            font-size: $size-m;
+            margin-right: $size-xs;
+
+            &:hover {
+                color: $color-secondary;
+            }
+
+            &::after {
+                content: " - ";
+            }
+        }
+
+        li:last-child {
+            a::after {
+                content: "";
+            }
+        }
+    }
+
+    &__directors,
+    &__actors {
+        flex-basis: 100%;
+
+        h2 {
+            font-size: $size-xl;
+        }
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: $size-m;
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-card {
+            max-width: $size-5xl;
+        }
     }
 }

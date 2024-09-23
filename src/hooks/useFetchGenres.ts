@@ -31,7 +31,7 @@ export default function useFetchGenres() {
 
     const fetchGenres = async (type: "movie" | "tv") => {
         try {
-            const response = await fetch(`${TMDB_BASE_URL}/genre/${type}/list${TMDB_API_KEY}`);
+            const response = await fetch(`${TMDB_BASE_URL}/genre/${type}/list?api_key=${TMDB_API_KEY}`);
 
             const data = await response.json();
 

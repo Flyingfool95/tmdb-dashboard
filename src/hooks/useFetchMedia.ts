@@ -1,17 +1,24 @@
-import useGlobalConstants from "../state/useGlobalConstants";
 import NO_IMAGE_FOUND from '../assets/no-poster-found.jpg';
+import useGlobalConstants from "../state/useGlobalConstants";
 
 export default function useFetchMedia() {
-    const { TMDB_API_KEY, TMDB_BASE_URL, TMDB_RESPONSE_LANG, TMDB_IMAGE_BASE_URL, TMDB_IMAGE_SIZE_BACKDROP, TMDB_IMAGE_SIZE_POSTER } = useGlobalConstants();
+    const {
+        TMDB_API_KEY,
+        TMDB_BASE_URL,
+        TMDB_RESPONSE_LANG,
+        TMDB_IMAGE_BASE_URL,
+        TMDB_IMAGE_SIZE_BACKDROP,
+        TMDB_IMAGE_SIZE_POSTER
+    } = useGlobalConstants();
 
     const fetchMedia = async (mediaId: string, mediaType: string) => {
 
         if (!mediaType) return null;
 
-        try {
-            const type = mediaType === 'movies' ? 'movie' : 'tv';
+        const type = mediaType === 'movies' ? 'movie' : 'tv';
 
-            const response = await fetch(`${TMDB_BASE_URL}/${type}/${mediaId}${TMDB_API_KEY}&language=${TMDB_RESPONSE_LANG}`);
+        try {
+            const response = await fetch(`${TMDB_BASE_URL}/${type}/${mediaId}?api_key=${TMDB_API_KEY}&language=${TMDB_RESPONSE_LANG}`);
 
             const data = await response.json();
 
@@ -35,7 +42,7 @@ export default function useFetchMedia() {
             };
         } catch (error) {
             console.error(error);
-            return null;
+            return error;
         }
     };
 

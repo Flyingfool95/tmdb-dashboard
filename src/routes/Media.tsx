@@ -1,24 +1,32 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useFetchMedia from "../hooks/useFetchMedia";
 import usePathname from "../hooks/usePathname";
+import useFetchCredits from "../hooks/useFetchCredits";
+import ProfileCard from "../components/ProfileCard";
 
 export default function Media() {
 
     const { mediaId } = useParams();
     const { mediaType } = usePathname();
     const { fetchMedia } = useFetchMedia();
+    const { fetchCredits } = useFetchCredits();
+
 
     if (!mediaId) return null;
 
-    const mediaData = useQuery({
+    const mediaData = useQuery<any>({
         queryKey: ['media-data', mediaId, mediaType],
         queryFn: () => fetchMedia(mediaId, mediaType),
+    })
+    const creditsData = useQuery({
+        queryKey: ['credits-data', mediaId, mediaType],
+        queryFn: () => fetchCredits(mediaId, mediaType),
     })
 
     if (mediaData.isLoading) return <p>Loading...</p>;
 
-    if (!mediaData.data) return null;
+    if (!mediaData.data || !creditsData.data) return null;
 
     return (
 
@@ -32,18 +40,44 @@ export default function Media() {
             <div className="media__details">
                 <h1>{mediaData.data.title}</h1>
 
-                <p>{mediaData.data.releaseYear}</p>
+                <p className="media__year">Release year: {mediaData.data.releaseYear}</p>
 
                 <ul className="media__genres">
                     {
                         mediaData.data.genres && mediaData.data.genres.map((genre: any) => (
-                            <li key={genre.id}>{genre.name}</li>
+                            <li key={genre.id}><Link to={`/${mediaType}/genre/${genre.id}`} key={genre.id}>{genre.name}</Link></li>
                         ))
                     }
                 </ul>
 
                 <p>{mediaData.data.description}</p>
+
+                <div className="media__directors">
+                    <h2>Directors</h2>
+
+                    {
+                        creditsData.data.directors &&
+                        <ul>
+                            {
+                                creditsData.data.directors.map((cast: any) => (
+                                    <ProfileCard key={cast.id} cast={cast} />
+                                ))
+                            }
+                        </ul>
+                    }
+                </div>
+                <div className="media__actors">
+                    <h2>Actors</h2>
+                    <ul>
+                        {
+                            creditsData.data.actors && creditsData.data.actors.map((cast: any) => (
+                                <ProfileCard key={cast.id} cast={cast} />
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
+
         </main>
 
     )
