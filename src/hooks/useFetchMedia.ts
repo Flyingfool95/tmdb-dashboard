@@ -37,6 +37,7 @@ export default function useFetchMedia() {
             };
         } catch (error) {
             console.error(error);
+            return null;
         }
 
     };

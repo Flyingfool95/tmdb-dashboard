@@ -69,7 +69,7 @@ export default function useFetchDashboard() {
 
         } catch (error) {
             console.error(error);
-            return [];
+            return null;
         }
     };
 
