@@ -17,6 +17,6 @@ The application uses the following technologies:
 
 - React (TypeScript) 
 - React Router
-- React Query
+- React Query (Server state manager/caching)
 - The Movie Database (TMDb) API - You'll need to create a user at TMDB and add the API key to the TMDB_API_KEY variable in the .env file.
-- Zustand
+- Zustand (Local state manager)
