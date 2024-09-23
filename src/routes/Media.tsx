@@ -24,26 +24,36 @@ export default function Media() {
 
     if (!mediaData.data) return null;
 
+    const title = mediaData.data.title ?? mediaData.data.name;
+    const poster = TMDB_IMAGE_BASE_URL + TMDB_IMAGE_SIZE_POSTER + mediaData.data.poster_path;
+    const releaseYear = mediaData.data.release_date.slice(0, 4) ?? mediaData.data.first_air_date.slice(0, 4);
+    const description = mediaData.data.overview;
+    const backDrop = TMDB_IMAGE_BASE_URL + TMDB_IMAGE_SIZE_BACKDROP + mediaData.data.backdrop_path;
+    const genres = mediaData.data.genres
+
     return (
 
-        <main className="media" style={{ backgroundImage: `url(${TMDB_IMAGE_BASE_URL}${TMDB_IMAGE_SIZE_BACKDROP}${mediaData.data?.backdrop_path})` }
+        <main className="media" style={{ backgroundImage: `url(${backDrop})` }
         }>
 
             <div className="media__poster">
-                <img src={TMDB_IMAGE_BASE_URL + TMDB_IMAGE_SIZE_POSTER + mediaData.data.poster_path} alt={mediaData.data?.title ?? mediaData.data.name} />
+                <img src={poster} alt={title} />
             </div>
 
             <div className="media__details">
-                <h1>{mediaData.data.title ?? mediaData.data.name}</h1>
+                <h1>{title}</h1>
+
+                <p>{releaseYear}</p>
+
                 <ul className="media__genres">
                     {
-                        mediaData.data.genres && mediaData.data.genres.map((genre: any) => (
+                        genres && genres.map((genre: any) => (
                             <li key={genre.id}>{genre.name}</li>
                         ))
                     }
                 </ul>
 
-                <p>{mediaData.data.overview}</p>
+                <p>{description}</p>
             </div>
         </main>
 
