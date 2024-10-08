@@ -1,6 +1,4 @@
-# WEXO Code Challenge - API
-
-This is the WEXO Code Challenge - API, a React application that fetches data from the The Movie Database (TMDb) API and displays it in a user-friendly interface.
+# TMDB Dashboard
 
 ## Installation
 
